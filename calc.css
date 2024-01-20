@@ -14,6 +14,44 @@ body{
   height: 100%;
 }
 #calc-body {
-
   border: 1px solid black;
+  width: 300px;
+  height: 500px;
+}
+
+#calc-display {
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: #fff;
+  margin: 20px;
+  height: 50px;
+}
+
+button {
+  /* border: 1px solid black; */
+  width: 21%;
+  height: 85px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+#buttons{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1px;
+}
+
+#display {
+  height: 30px;
+  width: 185px;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
