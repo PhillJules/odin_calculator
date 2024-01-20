@@ -6,23 +6,7 @@ const display = document.getElementById("display");
 let buttons = document.querySelectorAll('.integer, .operator, #eval, #clear');
 let integer = document.getElementsByClassName("integer");
 
-function addition(a, b){
-  return a + b;
-
-}
-
-function subtraction(a, b){
-  return a - b;
-}
-
-function multiplication(a, b){
-  return a * b;
-}
-
-function division(a, b){
-  return a / b;
-}
-
+// use a for loop to add event listeners to all the buttons
 buttons.forEach(button => {
   button.addEventListener('click', function () {
     if (button.classList.contains("integer")){
@@ -56,14 +40,39 @@ function handleIntegerClick(value){
   console.log(num1, currentOperator, num2);
 }
 
-function handleOperatorClick(operator){
- // assign the operator to currentOperator
-  currentOperator = operator;
 
 
- updateDisplay(operator);
+function handleOperatorClick(operator) {
+  // If there are existing values, perform the previous operation
+  if (num1 !== null && currentOperator !== null && num2 !== null) {
+    stringOperation();
+    updateDisplay(num1); // Update display with num1 after the operation
+    currentOperator = operator; // Assign the new operator
+    num2 = null; // Clear num2 for the next number input
+  } else if (num1 !== null && currentOperator !== null) {
+    // If an operator is already selected, update it
+    currentOperator = operator;
+  } else {
+    // If this is the first operator, or after an evaluation, assign num1
+    num1 = display.value;
+    currentOperator = operator;
+  }
+}
+function addition(a, b){
+  return a + b;
 
- console.log(num1, currentOperator, num2);
+}
+
+function subtraction(a, b){
+  return a - b;
+}
+
+function multiplication(a, b){
+  return a * b;
+}
+
+function division(a, b){
+  return a / b;
 }
 
 function operate(operator, num1, num2){
@@ -82,8 +91,14 @@ function operate(operator, num1, num2){
 return result;
 }
 
+function stringOperation() {
+  result = operate(currentOperator, parseInt(num1), parseInt(num2));
+  num1 = result.toString();
+  currentOperator = null;
+  num2 = null;
+}
+
 function updateDisplay(value){
-  // display.value = display.value === "0" ? value : display.value + value;
-  display.value = value.toString();
+  display.value = value;
   console.log("button clicked");
 }
