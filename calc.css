@@ -6,7 +6,7 @@ html, body{
   padding: 0;
   height: 100vh;
   width: 100vw;
-  background-color: #f2f2f2;
+  background-color: #51a39a;
   font-family: 'Roboto', sans-serif;
 }
 #calc-container {
@@ -16,9 +16,12 @@ html, body{
   height: 100%;
 }
 #calc-body {
-  border: 1px solid black;
-  width: 300px;
+  border: 8px solid gray;
+  border-radius: 6px;
+  width: 375px;
   height: 500px;
+  /* background-image: url(./assets/calcbdy.jpeg); */
+  background-color: #b4b2b2;
 }
 
 #calc-display {
@@ -28,8 +31,8 @@ html, body{
   align-items: center;
   font-size: 2rem;
   font-weight: bold;
-  background-color: #fff;
-  margin: 20px;
+  background-color: gainsboro;
+  margin: 30px;
   height: 50px;
 }
 
@@ -56,4 +59,5 @@ button {
   width: 185px;
   font-size: 1.5rem;
   font-weight: 600;
+  background-color: rgb(85, 172, 85);
 }
