@@ -19,13 +19,13 @@ html, body{
   border: 8px solid gray;
   border-radius: 6px;
   width: 375px;
-  height: 500px;
+  height: 585px;
   /* background-image: url(./assets/calcbdy.jpeg); */
   background-color: #b4b2b2;
 }
 
 #calc-display {
-  border: 1px solid black;
+  border: 3px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,6 +52,20 @@ button {
   justify-content: center;
   align-items: center;
   gap: 1px;
+}
+
+.operator {
+  color: #51a39a;
+  /* background-color: gray; */
+}
+
+#zero {
+  width: 42%;
+}
+
+#clear {
+  background-color: rgb(255, 153, 153);
+  color: #51a39a;
 }
 
 #display {
