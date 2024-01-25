@@ -1,10 +1,12 @@
 let num1 = null;
 let num2 = null;
 let currentOperator = null;
-let operator = document.getElementsByClassName("operator");
+let operator = document.querySelectorAll(".operator");
 const display = document.getElementById("display");
 let buttons = document.querySelectorAll('.integer, .operator, #eval, #clear');
 let integer = document.getElementsByClassName("integer");
+
+
 
 // use a for loop to add event listeners to all the buttons
 buttons.forEach(button => {
@@ -13,6 +15,7 @@ buttons.forEach(button => {
       handleIntegerClick(button.textContent);
     } else if (button.classList.contains("operator")){
       handleOperatorClick(button.textContent);
+
     } else if (button.id ==="eval"){
      const result =  operate(currentOperator, parseInt(num1), parseInt(num2));
       updateDisplay(result);
@@ -40,9 +43,8 @@ function handleIntegerClick(value){
   console.log(num1, currentOperator, num2);
 }
 
-
-
 function handleOperatorClick(operator) {
+  operatorClickStyling(operator); // Add styling to the operator button
   // If there are existing values, perform the previous operation
   if (num1 !== null && currentOperator !== null && num2 !== null) {
     stringOperation();
@@ -57,6 +59,59 @@ function handleOperatorClick(operator) {
     num1 = display.value;
     currentOperator = operator;
   }
+
+
+
+}
+
+function operatorClickStyling(operator){
+  if (operator === "+"){
+    add.classList.add("active");
+
+    if(subtract.classList.contains("active")){
+      subtract.classList.remove("active");
+    } else if (multiply.classList.contains("active")){
+      multiply.classList.remove("active");
+    } else if (divide.classList.contains("active")){
+      divide.classList.remove("active");
+    }
+  } else if (operator === "-"){
+    subtract.classList.add("active");
+
+    if(add.classList.contains("active")){
+      add.classList.remove("active");
+    } else if (multiply.classList.contains("active")){
+      multiply.classList.remove("active");
+    } else if (divide.classList.contains("active")){
+      divide.classList.remove("active");
+    }
+  } else if (operator === "X"){
+    multiply.classList.add("active");
+
+    if(add.classList.contains("active")){
+      add.classList.remove("active");
+    } else if (subtract.classList.contains("active")){
+      subtract.classList.remove("active");
+    } else if (divide.classList.contains("active")){
+      divide.classList.remove("active");
+    }
+  } else if (operator === "/"){
+    divide.classList.add("active");
+
+    if(add.classList.contains("active")){
+      add.classList.remove("active");
+    } else if (subtract.classList.contains("active")){
+      subtract.classList.remove("active");
+    } else if (multiply.classList.contains("active")){
+      multiply.classList.remove("active");
+    }
+  } else if (operator === "="){
+    add.classList.remove("active");
+    subtract.classList.remove("active");
+    multiply.classList.remove("active");
+    divide.classList.remove("active");
+  }
+
 }
 function addition(a, b){
   return a + b;
@@ -82,7 +137,7 @@ function operate(operator, num1, num2){
 
 } else if (operator === "-"){
   result = subtraction(num1, num2);
-} else if (operator === "*"){
+} else if (operator === "X"){
   result = multiplication(num1, num2);
 } else if (operator === "/"){
   result = division(num1, num2);

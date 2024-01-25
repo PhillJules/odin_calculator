@@ -1,0 +1,81 @@
+* {
+  box-sizing: border-box;
+}
+html, body{
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #51a39a;
+  font-family: 'Roboto', sans-serif;
+}
+#calc-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+#calc-body {
+  border: 8px solid gray;
+  border-radius: 6px;
+  width: 375px;
+  height: 585px;
+  /* background-image: url(./assets/calcbdy.jpeg); */
+  background-color: #b4b2b2;
+}
+
+#calc-display {
+  border: 3px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: gainsboro;
+  margin: 30px;
+  height: 50px;
+}
+
+button {
+  /* border: 1px solid black; */
+  width: 21%;
+  height: 85px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+#buttons{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1px;
+}
+
+.operator {
+  color: #51a39a;
+  /* background-color: gray; */
+}
+
+#zero {
+  width: 42%;
+}
+
+#clear {
+  background-color: rgb(255, 153, 153);
+  color: #51a39a;
+}
+
+#display {
+  height: 30px;
+  width: 185px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  background-color: rgb(85, 172, 85);
+}
+
+.active {
+  background-color: rgb(85, 172, 85);
+}
