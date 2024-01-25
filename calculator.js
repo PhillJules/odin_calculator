@@ -5,6 +5,7 @@ let operator = document.querySelectorAll(".operator");
 const display = document.getElementById("display");
 let buttons = document.querySelectorAll('.integer, .operator, #eval, #clear');
 let integer = document.getElementsByClassName("integer");
+const decimal = document.getElementById("decimal");
 
 
 
@@ -59,11 +60,24 @@ function handleOperatorClick(operator) {
     num1 = display.value;
     currentOperator = operator;
   }
-
-
-
 }
 
+decimal.addEventListener("click", handleDecimalClick);
+
+function handleDecimalClick() {
+  if (currentOperator === null) {
+    if (!num1.includes(".")) {
+      num1 = num1 === null ? "0." : num1 + ".";
+    }
+  } else {
+    if (!num2.includes(".")) {
+    num2 = num2 === null ? "0." : num2 + ".";
+  }
+ }
+
+ updateDisplay(currentOperator === null ? num1 : num2);
+  console.log("decimal clicked")
+}
 function operatorClickStyling(operator){
   if (operator === "+"){
     add.classList.add("active");
@@ -147,7 +161,7 @@ return result;
 }
 
 function stringOperation() {
-  result = operate(currentOperator, parseInt(num1), parseInt(num2));
+  result = operate(currentOperator, parseFloat(num1), parseFloat(num2));
   num1 = result.toString();
   currentOperator = null;
   num2 = null;
