@@ -78,4 +78,5 @@ button {
 
 .active {
   background-color: rgb(85, 172, 85);
+  color: #fff;
 }
