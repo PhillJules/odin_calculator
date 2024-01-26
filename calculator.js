@@ -6,6 +6,11 @@ const display = document.getElementById("display");
 let buttons = document.querySelectorAll('.integer, .operator, #eval, #clear');
 let integer = document.getElementsByClassName("integer");
 const decimal = document.getElementById("decimal");
+// const clear = document.getElementById("clear"); // Clear button
+// const add = document.getElementById("add"); // Add button
+// const subtract = document.getElementById("subtract"); // Subtract button
+// const multiply = document.getElementById("multiply"); // Multiply button
+// const divide = document.getElementById("divide"); // Divide button
 
 
 
@@ -28,6 +33,11 @@ buttons.forEach(button => {
       num2 = null;
       currentOperator = null;
       updateDisplay("0");
+      add.classList.remove("active");
+      subtract.classList.remove("active");
+      multiply.classList.remove("active");
+      divide.classList.remove("active");
+      console.log("clear clicked");
     }
   });
 });
@@ -78,7 +88,8 @@ function handleDecimalClick() {
  updateDisplay(currentOperator === null ? num1 : num2);
   console.log("decimal clicked")
 }
-function operatorClickStyling(operator){
+function operatorClickStyling(operator, button){
+
   if (operator === "+"){
     add.classList.add("active");
 
