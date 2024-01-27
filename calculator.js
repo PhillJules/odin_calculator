@@ -20,14 +20,6 @@ buttons.forEach(button => {
     } else if (button.classList.contains("operator")){
       handleOperatorClick(button.textContent);
     }
-    // } else if (button.id ==="eval"){
-    //  const result =  operate(currentOperator, parseInt(num1), parseInt(num2));
-    //   updateDisplay(result);
-    //   // num1 = result;
-    //   currentOperator = null;
-    //   num1 = "0"
-    //   num2 = null;
-    // }
   });
 });
 
@@ -94,10 +86,12 @@ decimal.addEventListener("click", handleDecimalClick);
 
 function handleDecimalClick() {
   if (currentOperator === null) {
+    // if num1 does not include a decimal, add one
     if (!num1.includes(".")) {
       num1 = num1 === "0" ? "0." : num1 + ".";
     }
   } else {
+    // if num2 does not include a decimal, add one
     if (!num2.includes(".")) {
       num2 = num2 === "0" ? "0." : num2 + ".";
     }
@@ -106,7 +100,8 @@ function handleDecimalClick() {
   updateDisplay(currentOperator === null ? num1 : num2);
   console.log("decimal clicked");
 }
-function operatorClickStyling(operator, button){
+
+function operatorClickStyling(operator){
 
   if (operator === "+"){
     add.classList.add("active");
@@ -181,7 +176,7 @@ function operate(operator, num1, num2){
   result = division(num1, num2);
 }
 
-return result;
+return result.toFixed(2);
 }
 
 function stringOperation() {
