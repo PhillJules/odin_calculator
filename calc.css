@@ -61,11 +61,21 @@ button {
 
 #zero {
   width: 42%;
+  border-radius: 0 0 0 11%;
 }
 
 #clear {
   background-color: rgb(255, 153, 153);
   color: #51a39a;
+  border-radius: 15% 0 0 0;
+}
+
+#divide {
+  border-radius: 0 15% 0 0;
+}
+
+#eval {
+  border-radius: 0 0 15% 0;
 }
 
 #display {
