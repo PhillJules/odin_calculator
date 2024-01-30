@@ -8,6 +8,7 @@ let integer = document.getElementsByClassName("integer");
 const decimal = document.getElementById("decimal");
 const clear = document.getElementById("clear");
 const equals = document.getElementById("eval");
+const negative = document.getElementById("negative");
 
 
 
@@ -101,6 +102,18 @@ function handleDecimalClick() {
   console.log("decimal clicked");
 }
 
+negative.addEventListener("click", handleNegativeClick);
+
+function handleNegativeClick(){
+  if (currentOperator === null){
+    num1 = num1 * -1;
+  } else {
+    num2 = num2 * -1;
+  }
+  updateDisplay(currentOperator === null ? num1 : num2);
+  console.log("negative clicked");
+}
+
 function operatorClickStyling(operator){
 
   if (operator === "+"){
@@ -176,7 +189,7 @@ function operate(operator, num1, num2){
   result = division(num1, num2);
 }
 
-return result.toFixed(2);
+return result;
 }
 
 function stringOperation() {
