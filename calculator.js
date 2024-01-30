@@ -9,6 +9,7 @@ const decimal = document.getElementById("decimal");
 const clear = document.getElementById("clear");
 const equals = document.getElementById("eval");
 const negative = document.getElementById("negative");
+const percent = document.getElementById("percent");
 
 
 
@@ -114,6 +115,20 @@ function handleNegativeClick(){
   console.log("negative clicked");
 }
 
+percent.addEventListener("click", handlePercentClick);
+function handlePercentClick() {
+  if (currentOperator === null) {
+    // If no operator is selected, treat percent as a unary operator for num1
+    num1 = parseFloat(num1) / 100;
+  } else {
+    // If an operator is selected, move the decimal place for num2
+    num2 = parseFloat(num2) / 100 * num1;
+  }
+
+  updateDisplay(currentOperator === null ? num1 : num2);
+  console.log("percent clicked");
+}
+
 function operatorClickStyling(operator){
 
   if (operator === "+"){
@@ -189,7 +204,7 @@ function operate(operator, num1, num2){
   result = division(num1, num2);
 }
 
-return result;
+return result.toFixed(2);
 }
 
 function stringOperation() {
